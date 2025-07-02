@@ -45,7 +45,7 @@ export default function StudentProfile() {
         updateData.newPassword = formData.newPassword;
       }
 
-      const response = await fetch(`http://localhost:3001/api/profile/student/${user?.id}`, {
+      const response = await fetch(`http://attendancesys-yn0k.onrender.com/api/profile/student/${user?.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
