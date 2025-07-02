@@ -43,7 +43,7 @@ export default function ManageStudents() {
   const fetchStudents = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3001/api/students', {
+      const response = await fetch('http://attendancesys-yn0k.onrender.com/api/students', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -69,7 +69,7 @@ export default function ManageStudents() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3001/api/students', {
+      const response = await fetch('http://attendancesys-yn0k.onrender.com/api/students', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
