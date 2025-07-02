@@ -45,7 +45,7 @@ export default function AdminProfile() {
         updateData.newPassword = formData.newPassword;
       }
 
-      const response = await fetch(`http://localhost:3001/api/profile/admin/${user?.id}`, {
+      const response = await fetch(`http://attendancesys-yn0k.onrender.com/api/profile/admin/${user?.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
