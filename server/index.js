@@ -84,9 +84,6 @@ const authenticateToken = (req, res, next) => {
 };
 
 
-const hash = await bcrypt.hash('dasu1985', 10);
-console.log('Hashed Password:', hash);
-
 // Auth Routes
 app.post('/api/auth/student/login', async (req, res) => {
   try {
@@ -100,12 +97,6 @@ app.post('/api/auth/student/login', async (req, res) => {
     if (!student) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-
-   console.log('🚀 Login attempt:', { rollNo, password });
-  console.log('🔐 Fetched from DB:', student);
-  console.log('🔐 Stored hash:', student.password_hash);
-  const isValidPassword = await bcrypt.compare(password, student.password_hash);
-  console.log('✅ Password match:', isValidPassword);
 
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials' });
@@ -148,12 +139,6 @@ app.post('/api/auth/admin/login', async (req, res) => {
     if (!admin) {
       return res.status(401).json({ error: 'Invalid credentials....!' });
     }
-
-    console.log('🚀 Login attempt:', { username, password });
-    console.log('🔐 Fetched from DB:', admin);
-    console.log('🔐 Stored hash:', admin.password_hash);
-    const isValidPassword = await bcrypt.compare(password, admin.password_hash);
-    console.log('✅ Password match:', isValidPassword);
 
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials!.....' });
@@ -574,8 +559,6 @@ app.use((error, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📊 Admin Panel: http://localhost:5173/login`);
-  console.log(`🔐 Default Admin: username=admin, password=admin123`);
-});
+  console.log(`Server running on port ${PORT}`);
