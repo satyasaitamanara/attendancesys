@@ -88,7 +88,7 @@ export default function UploadAttendance() {
       const token = localStorage.getItem('token');
       
 
-      const response = await fetch('http://attendancesys-yn0k.onrender.com/api/attendance/upload', {
+      const response = await fetch('https://attendancesys-yn0k.onrender.com/api/attendance/upload', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
