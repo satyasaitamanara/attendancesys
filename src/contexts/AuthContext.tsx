@@ -54,7 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const endpoint = role === 'student' ? '/api/auth/student/login' : '/api/auth/admin/login';
       
-      const response = await fetch(`http://attendancesys-yn0k.onrender.com${endpoint}`, {
+      const response = await fetch(`https://attendancesys-yn0k.onrender.com${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
