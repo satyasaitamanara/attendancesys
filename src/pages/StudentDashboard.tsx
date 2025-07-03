@@ -26,7 +26,7 @@ export default function StudentDashboard() {
   const fetchAttendanceRecords = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://attendancesys-yn0k.onrender.com/api/attendance/${user?.id}`, {
+      const response = await fetch(`https://attendancesys-yn0k.onrender.com/api/attendance/${user?.id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
