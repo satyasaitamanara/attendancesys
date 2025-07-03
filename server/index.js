@@ -100,7 +100,7 @@ app.post('/api/auth/student/login', async (req, res) => {
     if (!student) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-
+    const isValidPassword = await bcrypt.compare(password, student.password_hash);
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -142,7 +142,7 @@ app.post('/api/auth/admin/login', async (req, res) => {
     if (!admin) {
       return res.status(401).json({ error: 'Invalid credentials....!' });
     }
-
+    const isValidPassword = await bcrypt.compare(password, admin.password_hash);
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials!.....' });
     }
