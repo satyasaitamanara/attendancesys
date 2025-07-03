@@ -41,10 +41,10 @@ export default function AdminDashboard() {
       
       // Fetch students and stats in parallel
       const [studentsResponse, statsResponse] = await Promise.all([
-        fetch('http://attendancesys-yn0k.onrender.com/api/students', {
+        fetch('https://attendancesys-yn0k.onrender.com/api/students', {
           headers: { 'Authorization': `Bearer ${token}` },
         }),
-        fetch('http://attendancesys-yn0k.onrender.com/api/dashboard/stats', {
+        fetch('https://attendancesys-yn0k.onrender.com/api/dashboard/stats', {
           headers: { 'Authorization': `Bearer ${token}` },
         }),
       ]);
